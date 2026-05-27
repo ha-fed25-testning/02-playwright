@@ -30,3 +30,17 @@ test('när sidan laddas visas inga timers', async ({ page }) => {
 	const timerElement = page.locator('.timer')
 	await expect(timerElement).toBeHidden()
 })
+
+
+test('som användare, vill jag lägga till en timer, för att ta tiden på hur långt det är kvar på rasten', async ({ page }) => {
+	// 1. ladda sidan
+	// 2. klicka på "Add timer"
+	// 3. kontrollera att element med CSS-klassen timer syns
+
+	await page.goto(url)
+
+	await page.getByRole('button', { name: 'Add timer' }).click()
+
+	const timerElement = page.locator('.timer')
+	await expect(timerElement).toBeVisible()
+})
