@@ -1,0 +1,17 @@
+{
+  "name": "02-playwright",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+	"test-e2e": "playwright test"
+  },
+  "type": "module",
+  "keywords": [],
+  "author": "David Andersson",
+  "license": "ISC",
+  "description": "E2E-test med Playwright",
+  "devDependencies": {
+    "@playwright/test": "^1.60.0",
+    "@types/node": "^25.9.1"
+  }
+}
