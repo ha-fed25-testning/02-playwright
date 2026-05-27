@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-	"test-e2e": "playwright test"
+	"test-e2e": "playwright test --reporter=list"
   },
   "type": "module",
   "keywords": [],

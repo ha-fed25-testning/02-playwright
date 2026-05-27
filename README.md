@@ -4,11 +4,14 @@ Starta projekt
 
 ```bash
 # skapa mapp för projektet
+mkdir my-project
+cd my-project/
+
 git init
+# Skapa .gitignore
+
 npm init -y
 # Lägg till "type": "module" i package.json
-
-# Skapa .gitignore
 
 npm create playwright@latest
 # Välj: JavaScript, tests, Y, Y
