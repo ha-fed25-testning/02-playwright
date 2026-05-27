@@ -14,4 +14,6 @@ npm create playwright@latest
 # Välj: JavaScript, tests, Y, Y
 
 # Skapa test-skript i package.json
+# Starta ditt test-skript
+npm run test-e2e
 ```
