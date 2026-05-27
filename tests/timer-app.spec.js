@@ -9,38 +9,41 @@ import { test, expect } from '@playwright/test'
 const url = 'https://lejonmanen.github.io/timer-vue/'
 
 
-test('smoke test, sidan laddas och har titeln "Timer app"', async ({ page }) => {
-	// 1. ladda sidan
-	// 2. kontrollera titeln
+test.describe('Timer app', () => {
 
-	await page.goto(url)
+	test.beforeEach(async ({ page }) => {
+		// Surfa till startsidan - ingår i varje test
+		await page.goto(url)
 
-	const title = await page.title()
-	expect(title).toBe("Timer app")
-})
+	})
 
 
-test('när sidan laddas visas inga timers', async ({ page }) => {
-	// 1. ladda sidan
-	// 2. kontrollera att timer inte syns (element med CSS-klassen timer)
+	test('smoke test, sidan laddas och har titeln "Timer app"', async ({ page }) => {
+		// 1. ladda sidan - görs i beforeEach
+		// 2. kontrollera titeln
 
-	await page.goto(url)
-
-	// locator fungerar som querySelector - men ska användas i sista hand!
-	const timerElement = page.locator('.timer')
-	await expect(timerElement).toBeHidden()
-})
+		const title = await page.title()
+		expect(title).toBe("Timer app")
+	})
 
 
-test('som användare, vill jag lägga till en timer, för att ta tiden på hur långt det är kvar på rasten', async ({ page }) => {
-	// 1. ladda sidan
-	// 2. klicka på "Add timer"
-	// 3. kontrollera att element med CSS-klassen timer syns
+	test('när sidan laddas visas inga timers', async ({ page }) => {
+		// 1. Kontrollera att timer inte syns (element med CSS-klassen timer)
 
-	await page.goto(url)
+		// locator fungerar som querySelector - men ska användas i sista hand!
+		const timerElement = page.locator('.timer')
+		await expect(timerElement).toBeHidden()
+	})
 
-	await page.getByRole('button', { name: 'Add timer' }).click()
 
-	const timerElement = page.locator('.timer')
-	await expect(timerElement).toBeVisible()
-})
+	test('som användare, vill jag lägga till en timer, för att ta tiden på hur långt det är kvar på rasten', async ({ page }) => {
+		// 1. klicka på "Add timer"
+		// 2. kontrollera att element med CSS-klassen timer syns
+
+		await page.getByRole('button', { name: 'Add timer' }).click()
+
+		const timerElement = page.locator('.timer')
+		await expect(timerElement).toBeVisible()
+	})
+
+})  // describe: Timer app
