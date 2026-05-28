@@ -20,3 +20,17 @@ npm create playwright@latest
 # Starta ditt test-skript
 npm run test-e2e
 ```
+
+Playwright-tips
+```bash
+# köra Playwright utan package.json-skript
+npx playwright test
+
+# köra bara specifik testfil genom att matcha filnamnet
+playwright test filnamn
+
+# ändra hur resultaten visas med reporter
+playwright test --reporter=list
+playwright test --reporter=line
+playwright test --reporter=dot
+```

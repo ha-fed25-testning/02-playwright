@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-	"test-e2e": "playwright test --reporter=list"
+	"test-e2e": "playwright test --reporter=list",
+	"test-e2e-ah": "playwright test --reporter=list agile-helper"
   },
   "type": "module",
   "keywords": [],
